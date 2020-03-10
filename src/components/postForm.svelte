@@ -1,4 +1,8 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   let title = "";
   let body = "";
 
@@ -22,13 +26,16 @@
     });
 
     const post = await res.json();
+    dispatch('postCreated', post);
+    title = body = '';
+
     loading = false;
   }
 </script>
 
 <style>
   form {
-    margin: 50px
+    margin: 50px;
   }
   .progress {
     margin: 100px 0;

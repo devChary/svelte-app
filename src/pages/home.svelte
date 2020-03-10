@@ -11,6 +11,10 @@
     posts = await res.json();
   });
 
+  function addPost({ detail: post }) {
+    posts = [post, ...posts];
+  }
+
   function editPost(post) {
     console.log(post);
   }
@@ -37,7 +41,7 @@
 
 <div class="row">
   <div class="col s6">
-    <PostForm />
+    <PostForm on:postCreated={addPost} />
   </div>
 </div>
 
