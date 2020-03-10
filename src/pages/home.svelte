@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import PostForm from '../components/postForm.svelte';
+  import PostForm from "../components/postForm.svelte";
 
   const apiBaseUrl =
     "https://ndb99xkpdk.execute-api.eu-west-2.amazonaws.com/dev";
@@ -12,11 +12,11 @@
   });
 
   function editPost(post) {
-      console.log(post)
+    console.log(post);
   }
 
   function deletePost(id) {
-      console.log(id)
+    console.log(id);
   }
 </script>
 
@@ -35,11 +35,10 @@
   }
 </style>
 
-
 <div class="row">
-    <div class="col s6">
-
-    </div>
+  <div class="col s6">
+    <PostForm />
+  </div>
 </div>
 
 <div class="row">
@@ -56,7 +55,9 @@
           </div>
           <div class="card-action">
             <a on:click={() => editPost(post)}>Edit</a>
-            <a on:click={() => deletePost(post.id)} class="delete-btn">Delete</a>
+            <a on:click={() => deletePost(post.id)} class="delete-btn">
+              Delete
+            </a>
           </div>
         </div>
       </div>
